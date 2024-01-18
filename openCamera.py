@@ -19,7 +19,7 @@ while True:
     frame = cv2.flip(frame, 1)
 
     # Display the frame in a window named 'frame'
-    cv2.imshow('frame', frame)
+    cv2.imshow('camera', frame)
 
     # Break the loop if 'q' key is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
