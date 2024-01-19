@@ -18,7 +18,7 @@ while True:
     # Flip the frame horizontally
     frame = cv2.flip(frame, 1)
 
-    # Display the frame in a window named 'frame'
+    # Display the frame in a window named 'camera'
     cv2.imshow('camera', frame)
 
     # Break the loop if 'q' key is pressed
