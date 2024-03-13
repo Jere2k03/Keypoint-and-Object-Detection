@@ -24,7 +24,7 @@ while True:
             for hand_landmarks in results.multi_hand_landmarks:
                 mpDraw.draw_landmarks(frame, hand_landmarks, mpHands.HAND_CONNECTIONS)
 
-                # Erkenne die Anzahl der gezeigten Finger
+                # detect finger
                 finger_up = [False] * 5
                 if hand_landmarks.landmark[mpHands.HandLandmark.THUMB_TIP].x > hand_landmarks.landmark[mpHands.HandLandmark.THUMB_MCP].x:
                     finger_up[0] = True
@@ -43,6 +43,8 @@ while True:
                     gesture = "Stein"
                 elif finger_up.count(True) == 2 and finger_up[1] and finger_up[4]:
                     gesture = "Rock 'n' Roll"
+                elif finger_up.count(True) == 2 and finger_up[1] and finger_up[2]:
+                    gesture = "Peace"
 
                 # Zeige die erkannte Geste in der oberen linken Ecke des Bildes
                 cv2.putText(frame, gesture, (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 3, (255, 0, 0), 2)
